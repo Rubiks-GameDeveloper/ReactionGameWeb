@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра на реакцию</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1>Игра на реакцию</h1>
+            <div class="controls">
+                <button id="startButton" class="button">Начать игру</button>
+                <button id="settingsButton" class="button">Настройки</button>
+                <button id="muteButton" class="button">🔊</button>
+            </div>
+        </div>
+
+        <div class="game-content">
+            <!-- Difficulty selection -->
+            <div id="difficultySelection" class="difficulty-selection hidden">
+                <h2>Выберите уровень сложности</h2>
+                <div class="difficulty-options">
+                    <button class="difficulty-button" data-difficulty="easy">
+                        <h3>Легкий</h3>
+                        <p>Большие цели (60-80px)</p>
+                        <p>3 секунды на реакцию</p>
+                        <p>60 секунд игры</p>
+                    </button>
+                    <button class="difficulty-button" data-difficulty="medium">
+                        <h3>Средний</h3>
+                        <p>Средние цели (40-60px)</p>
+                        <p>2 секунды на реакцию</p>
+                        <p>45 секунд игры</p>
+                    </button>
+                    <button class="difficulty-button" data-difficulty="hard">
+                        <h3>Сложный</h3>
+                        <p>Маленькие цели (30-50px)</p>
+                        <p>1.5 секунды на реакцию</p>
+                        <p>30 секунд игры</p>
+                    </button>
+                </div>
+            </div>
+
+            <div id="gameArea" class="game-area hidden">
+                <!-- Targets will be added here dynamically -->
+            </div>
+
+            <div id="gameInfo" class="game-info hidden">
+                <div class="game-controls">
+                    <div id="gameButtons" class="game-buttons hidden">
+                        <button id="exitButton" class="control-button">Выйти</button>
+                    </div>
+                </div>
+                <div id="score" class="score">Счёт: 0</div>
+                <div id="timer" class="timer">Время: 60</div>
+                <div id="reactionTime" class="reaction-time"></div>
+            </div>
+
+            <div id="highScores" class="high-scores">
+                <h2>Рекорды:</h2>
+                <div id="scoresList" class="scores-list"></div>
+            </div>
+
+            <div class="keyboard-controls">
+                <h3>Управление с клавиатуры:</h3>
+                <div class="keyboard-grid">
+                    <div class="key-item">
+                        <span class="key">Пробел</span>
+                        <span class="description">Начать игру</span>
+                    </div>
+                    <div class="key-item">
+                        <span class="key">M</span>
+                        <span class="description">Включить/выключить звук</span>
+                    </div>
+                    <div class="key-item">
+                        <span class="key">S</span>
+                        <span class="description">Настройки</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="settings" class="settings-overlay hidden">
+            <div class="settings-content">
+                <h2>Настройки</h2>
+                <div class="settings-group">
+                    <h3>Эффекты</h3>
+                    <label>
+                        <input type="checkbox" id="particleEffects" checked>
+                        Частицы при попадании
+                    </label>
+                    <label>
+                        <input type="checkbox" id="screenShake" checked>
+                        Тряска экрана
+                    </label>
+                </div>
+                <button id="closeSettings" class="button">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="js/soundManager.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html> 
