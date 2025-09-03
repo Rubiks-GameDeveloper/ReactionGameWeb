@@ -280,8 +280,9 @@ class Game {
 
     createParticles(target) {
         const rect = target.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
+
+        const centerX = rect.left + window.scrollX + rect.width / 2;
+        const centerY = rect.top + window.scrollY + rect.height / 2;
 
         for (let i = 0; i < 10; i++) {
             const particle = document.createElement('div');
